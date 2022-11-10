@@ -81,4 +81,4 @@ jobs:
           tag: ${{ steps.tag_version.outputs.new_tag }}
           name: Release ${{ steps.tag_version.outputs.new_tag }}
           bodyfile: changes
-          artifacts: "lastimage,rootfs.tar.xz,version"
+          artifacts: "lastimage,rootfs.tar.xz,version" 
