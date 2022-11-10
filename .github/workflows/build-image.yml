@@ -60,7 +60,7 @@ jobs:
             podman export --output rootfs.tar fedora-update
             # Github actions runner has tar 1.30 which has a corruption bug with delete use more recent fedora version
             # podman run -v .:/mnt --security-opt label=disable fedora tar --delete -f /mnt/rootfs.tar etc/resolv.conf
-            podman run -v .:/mnt --security-opt label=disable fedora sh -c 'fedora dnf -y install bsdtar && bsdtar -cvf new.tar --exclude etc/resolv.conf @rootfs.tar'
+            podman run -v .:/mnt --security-opt label=disable fedora sh -c 'dnf -y install bsdtar && bsdtar -cvf new.tar --exclude etc/resolv.conf @rootfs.tar'
             mv new.tar rootfs.tar
             mkdir -p etc; touch etc/resolv.conf
             tar rf rootfs.tar --mode=644 --group=root --owner=root etc/resolv.conf
